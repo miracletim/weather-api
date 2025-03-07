@@ -11,6 +11,7 @@ app.get("/", (req, res) => {
     res.send("Weather API is running!");
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+if (require.main === module) {
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
+module.exports = app;
